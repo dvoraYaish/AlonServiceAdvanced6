@@ -10,11 +10,11 @@ import android.widget.Toast;
 
 public class PhoneReceiver extends BroadcastReceiver
 {
-    Context myContext;
+    Context myContext1;
 
     public void onReceive(Context context, Intent intent)
     {
-        myContext = context;
+        myContext1 = context;
         try {
             // TELEPHONY MANAGER class object to register one listner
             TelephonyManager tmgr = (TelephonyManager) context
@@ -44,11 +44,11 @@ public class PhoneReceiver extends BroadcastReceiver
                 wasCall = true;
                 String msg = "New Phone Call Event. Incomming Number : " + incomingNumber;
                 int duration = Toast.LENGTH_LONG;
-                Toast toast = Toast.makeText(myContext, msg, duration);
+                Toast toast = Toast.makeText(myContext1, msg, duration);
                 toast.show();
-                Intent intent = new Intent(myContext, MusicService.class);
+                Intent intent = new Intent(myContext1, MusicService.class);
                 intent.putExtra("action", "pause");
-                myContext.startService(intent);
+                myContext1.startService(intent);
 
             }
             /*else if( state == 0 && wasCall)
