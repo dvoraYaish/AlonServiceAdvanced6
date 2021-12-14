@@ -47,7 +47,7 @@ public class PhoneReceiver extends BroadcastReceiver
                 Toast toast = Toast.makeText(myContext, msg, duration);
                 toast.show();
                 Intent intent = new Intent(myContext, MusicService.class);
-                intent.putExtra("action", "pause");
+                intent.putExtra("action", "pauseResume");
                 myContext.startService(intent);
 
             }

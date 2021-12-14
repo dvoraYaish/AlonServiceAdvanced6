@@ -32,12 +32,18 @@ public class MusicService extends Service
             mediaPlayer = MediaPlayer.create(this, R.raw.bensoundukulele);
             mediaPlayer.start();
             isPlaying = true;
-        } else if (intent.getStringExtra("action").equals("pause")) {
-            length = mediaPlayer.getCurrentPosition();
-            mediaPlayer.pause();
-        } else if (intent.getStringExtra("action").equals("resume")) {
-            mediaPlayer.seekTo(length);
-            mediaPlayer.start();
+        } else if (intent.getStringExtra("action").equals("pauseResume")) {
+            if (isPlaying) {
+                Toast.makeText(this, "pause", Toast.LENGTH_SHORT).show();
+                length = mediaPlayer.getCurrentPosition();
+                mediaPlayer.pause();
+                isPlaying = false;
+            } else {
+                Toast.makeText(this, "resume", Toast.LENGTH_SHORT).show();
+                mediaPlayer.seekTo(length);
+                mediaPlayer.start();
+                isPlaying = true;
+            }
         }
 
         return START_REDELIVER_INTENT;

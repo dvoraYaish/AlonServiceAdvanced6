@@ -17,20 +17,12 @@
         android:onClick="onStartMusicPressed"
         android:layout_gravity="center"></Button>
     <Button
-        android:id="@+id/btPauseMusic"
+        android:id="@+id/btPauseResumeMusic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pause Music"
+        android:text="Pause"
         android:textSize="20dp"
-        android:onClick="onPauseMusicPressed"
-        android:layout_gravity="center"></Button>
-    <Button
-        android:id="@+id/btResumeMusic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Resume Music"
-        android:textSize="20dp"
-        android:onClick="onResumeMusicPressed"
+        android:onClick="onPauseResumeMusicPressed"
         android:layout_gravity="center"></Button>
 
 </LinearLayout>
