@@ -17,7 +17,7 @@ public class PhoneReceiver extends BroadcastReceiver
     {
         myContext = context;
         try {
-            // TELEPHONY MANAGER class object to register one listner
+            // TELEPHONY MANAGER class object to register one listener
             TelephonyManager tmgr = (TelephonyManager) context
                     .getSystemService(Context.TELEPHONY_SERVICE);
 
