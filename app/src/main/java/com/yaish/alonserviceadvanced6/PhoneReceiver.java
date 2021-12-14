@@ -11,6 +11,7 @@ import android.widget.Toast;
 public class PhoneReceiver extends BroadcastReceiver
 {
     Context myContext;
+    boolean wasCall = false;
 
     public void onReceive(Context context, Intent intent)
     {
@@ -34,7 +35,7 @@ public class PhoneReceiver extends BroadcastReceiver
 
     private class MyPhoneStateListener extends PhoneStateListener
     {
-        boolean wasCall = false;
+
         public void onCallStateChanged(int state, String incomingNumber)
         {
 
@@ -51,7 +52,7 @@ public class PhoneReceiver extends BroadcastReceiver
                 myContext.startService(intent);
 
             }
-            /*else if( state == 0 && wasCall)
+            else if( state == 0 && wasCall )
             {
                 wasCall = false;
                 String msg = "Call closed";
@@ -59,9 +60,9 @@ public class PhoneReceiver extends BroadcastReceiver
                 Toast toast = Toast.makeText(myContext, msg, duration);
                 toast.show();
                 Intent intent = new Intent(myContext, MusicService.class);
-                intent.putExtra("action", "resume");
+                intent.putExtra("action", "pauseResume");
                 myContext.startService(intent);
-            }*/
+            }
         }
 
     }
